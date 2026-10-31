@@ -7,8 +7,9 @@ an assertion that all 30 research invariants are enforced everywhere.
 `TESTED_LOCAL` and `TESTED_LOCAL_SCOPE` refer only to the targeted Windows
 code/unit/regression/negative/smoke checks described in
 [the current verification record](../RELEASE_EVIDENCE.md), including its skips.
-They do not mean complete functional product acceptance or a verified Linux/
-macOS correction. GitHub Actions PASS covers only documented tests of that
+They do not mean complete functional product acceptance. Recorded Linux/macOS
+CI results cover only the executed tests of the recorded base commit; this
+attribution/documentation candidate has no new CI run. GitHub Actions PASS covers only documented tests of that
 specific commit/environment, not all invariants, general freedom from defects,
 complete sandbox security, production readiness or guaranteed compatibility.
 

@@ -1,6 +1,11 @@
 # ForgeProofGate
 
-Independent vYronFORGE engineering reference. Not an OpenAI product or an OS sandbox.
+Project and publisher brand: **vYronFORGE.**
+
+Copyright (c) 2026 vYronFORGE.
+
+Independent engineering reference. Not an OpenAI product or an OS sandbox.
+The public attribution is a brand designation and does not assert a legal form.
 
 **A deterministic, fail-closed reference boundary for tool-using AI agents.**
 
@@ -30,9 +35,13 @@ The local source suite on Python 3.12.10, 3.13.13 and 3.15.0 discovers 47 tests:
 distinct case-sensitive sibling names. The smoke scripts exit 0. See
 [exact results and historical CI](RELEASE_EVIDENCE.md).
 
-Linux's three successful historical CI jobs apply only to commit
-`3af0952b319fca452a27d2967f1cbce47c7ac399`. New corrections are **not functionally
-confirmed on Linux or macOS**; their new CI is NOT_RUN. A GitHub Actions PASS means
+The retained CI record for commit
+`1e781555e7ff6ab6a93c97146aa3136c3ade4ff0`, run `41203391771`, reports nine
+successful jobs (Windows, Linux and macOS; Python 3.11/3.12/3.13). This local
+publication candidate changes attribution and documentation only; its runtime,
+tests and workflow match that commit. The candidate has no new commit or CI
+run. Fresh remote readback and complete historical log review remain NOT_RUN
+in this local preparation. A GitHub Actions PASS means
 only that the documented tests passed for that specific commit and environment.
 It does not establish general freedom from defects, complete sandbox security,
 production readiness or guaranteed cross-platform compatibility.
@@ -153,7 +162,8 @@ trademark clearance. No repository, deployment, cloud service or account
 changes are made by this package. The test suite uses only local temporary
 files and SQLite databases.
 
-A security report should be sent privately using the disclosure mechanism the
-repository maintainer configures before public release; see [SECURITY.md](SECURITY.md).
+No verified confidential security reporting contact is available yet. Public
+release remains blocked until one is documented; see [SECURITY.md](SECURITY.md).
+Do not submit vulnerability details or sensitive data to public issues.
 The current candidate has no new commit, push or CI authorization. Draft release
 notes and the separate publication gates are in [PUBLISHING.md](PUBLISHING.md).

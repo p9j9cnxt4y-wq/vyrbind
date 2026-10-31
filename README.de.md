@@ -1,5 +1,12 @@
 # ForgeProofGate – Deutsch
 
+Projekt- und Herausgebermarke: **vYronFORGE.**
+
+Copyright (c) 2026 vYronFORGE.
+
+Die öffentliche Kennzeichnung verwendet die Marke und behauptet keine Rechtsform.
+Unabhängige Referenz; kein OpenAI-Produkt und keine Betriebssystem-Sandbox.
+
 **Technische Referenzimplementierung für deterministische Sicherheitsgrenzen von KI-Agenten.**
 
 Stand: **unveröffentlichter Kandidat v0.1.0 / LOCAL_ONLY / nicht sicherheitszertifiziert**.
@@ -53,10 +60,15 @@ physischen Audit-/Workspace-Trennung berücksichtigt.
   ein Skip; Test- und Smoke-Exitcode jeweils 0.
 - **Skip:** Das Fixture-Volume erlaubt keine getrennten Verzeichnisnamen nur
   durch Groß-/Kleinschreibung. Dieser case-sensitive Test lief dort nicht.
-- **Linux:** Drei erfolgreiche historische CI-Jobs gehören ausschließlich zu
-  Commit `3af0952b319fca452a27d2967f1cbce47c7ac399`. Neue Korrekturen sind
-  funktional nicht bestätigt; neue CI: NOT_RUN.
-- **macOS:** Neue Korrekturen sind funktional nicht bestätigt; neue CI: NOT_RUN.
+- **Erhaltener CI-Nachweis:** Lauf `41203391771` für Commit
+  `1e781555e7ff6ab6a93c97146aa3136c3ade4ff0` dokumentiert neun erfolgreiche
+  Jobs: Windows/Linux/macOS mit Python 3.11/3.12/3.13. Je Windows-Job:
+  47 entdeckt, 46 bestanden, ein Skip. Je Linux-/macOS-Job: 47 entdeckt,
+  45 bestanden, zwei Skips.
+- **Dieser Veröffentlichungskandidat:** nur Attribution, Metadaten und
+  Dokumentation geändert; Runtime, Tests und Workflow bytegleich zum genannten
+  Commit. Kein neuer Commit und kein neuer CI-Lauf. Frischer Remote-Abgleich
+  und vollständige historische Logprüfung: NOT_RUN.
 - **GitHub Actions PASS** bedeutet ausschließlich, dass die dokumentierten
   Tests dieses konkreten Commits in der jeweiligen Umgebung erfolgreich liefen.
 

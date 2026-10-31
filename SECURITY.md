@@ -2,22 +2,25 @@
 
 ## Supported versions
 
-The current development candidate declares version 0.1.0 and is unreleased.
-It is an **experimental local reference**, not a production security boundary.
-No published or supported release series is asserted here. Targeted Windows
-checks and historical CI do not establish general security or platform support;
-see [RELEASE_EVIDENCE.md](RELEASE_EVIDENCE.md).
+Version 0.1.0 is an unreleased, experimental local reference. It is not a
+production security boundary. No supported release series or full platform
+acceptance is asserted. See [RELEASE_EVIDENCE.md](RELEASE_EVIDENCE.md).
 
 ## Reporting a vulnerability
 
 Do **not** disclose exploit details, personal data or secrets in a public issue.
-Before releasing the repository, the maintainer must configure a private
-security-advisory reporting channel for the repository (for example, the
-repository's private vulnerability reporting feature) and document it here.
-Until then, this package is **not ready for public security intake**.
+No existing confidential reporting contact has been confirmed for this
+candidate. Public release is blocked until a reachable confidential channel
+and responsible recipient are verified and documented here. No contact address
+is inferred from the publisher brand.
 
-We welcome reproducible, local-only minimal reproductions using synthetic
-files. Do not test other people's infrastructure without authorization.
+GitHub private vulnerability reporting is available for public repositories.
+Its later activation requires separate owner authorization and readback; it
+does not replace the missing pre-publication confidential contact. No report
+or test message has been sent as part of this preparation.
+
+Use reproducible, local-only minimal examples with synthetic data. Do not test
+other people's infrastructure without authorization.
 
 ## Explicit non-guarantees
 

@@ -1,5 +1,16 @@
 # Changelog
 
+## Local publication preparation — unreleased
+
+- Set the owner-approved public copyright notice to Copyright (c) 2026 vYronFORGE.
+- Use vYronFORGE. as project/publisher brand in package metadata and DE/EN docs.
+- Preserve the MIT license terms verbatim; do not infer a legal entity or expose personal identity.
+- Reconcile the retained base-commit CI record and current uncommitted candidate.
+- Keep missing confidential security intake and publication prerequisites explicit.
+- No runtime, test or workflow changes; no new commit, CI run or release.
+
+The following entries are the historical preparation snapshots of their source revisions.
+
 ## 0.1.0 — unreleased candidate, 2026-10-31
 
 - Check physical audit-parent ancestry before creating any lock or ledger;

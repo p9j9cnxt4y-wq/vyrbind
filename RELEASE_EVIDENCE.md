@@ -1,108 +1,66 @@
-# ForgeProofGate 0.1.0 — unreleased candidate verification
+# ForgeProofGate 0.1.0 — verification scope and source identity
 
-Date: 2026-10-31. Ticket: VYFORGE-FORGEPROOFGATE-CI-PORTABILITY-003.
-Scope: existing local repair plus corrected release documentation. No public release.
-Version 0.1.0 is a package version, not a unique source identity or a release claim.
+This is an uncommitted local attribution/documentation candidate based on
+`1e781555e7ff6ab6a93c97146aa3136c3ade4ff0`. Package version 0.1.0 is not a unique
+source identity or a claim that a release exists. Runtime code, tests and CI
+workflow are unchanged; new copyright/metadata/documentation bytes require
+new source and asset hashes.
 
-## Current local verification scope
+## Retained evidence for the base commit
 
-Windows results below cover targeted code, unit, regression, negative and smoke
-checks of this candidate. They are **not complete functional product acceptance**.
-The product code and test bytes retain the locally verified Junction/ledger fix;
-documentation changes require a new full source map and new built artifacts.
+The preserved execution record reports GitHub Actions run `41203391771`,
+attempt 1, nine successful jobs on the exact base commit above. This record
+was checked locally for integrity; fresh remote readback and complete remote
+historical log inspection are NOT_RUN in this local-only preparation.
 
-| Environment | Discovered | Passed | Skipped | Test exit | Smoke exit |
-| --- | ---: | ---: | ---: | ---: | ---: |
-| Windows / Python 3.12.10 source | 47 | 46 | 1 | 0 | 0 |
-| Windows / Python 3.13.13 source | 47 | 46 | 1 | 0 | 0 |
-| Windows / Python 3.15.0 source | 47 | 46 | 1 | 0 | 0 |
-| Windows / Python 3.13.13 installed wheel | 47 | 46 | 1 | 0 | CLI below |
+| Recorded CI environment | Python per job | Discovered | Passed | Skipped |
+| --- | --- | ---: | ---: | ---: |
+| Windows | 3.11 / 3.12 / 3.13 | 47 | 46 | 1 |
+| Linux | 3.11 / 3.12 / 3.13 | 47 | 45 | 2 |
+| macOS | 3.11 / 3.12 / 3.13 | 47 | 45 | 2 |
 
-Commands: `python tools/verify.py` and `python tools/smoke.py`. The installed-wheel
-suite imports the installed package, not the source checkout. Its CLI create and
-artifact readback exit 0; a deployment request returns `HUMAN_GATE_REQUIRED` with
-expected exit 2 and no deployment effect; chain-only verification exits 0.
+Windows skips distinct case-sensitive sibling names on the fixture volume.
+macOS skips those siblings and the Windows-only junction fixture. Linux skips
+the unsupported case-alias fixture and the Windows-only junction fixture.
+Skipped tests are not passed tests. Source regression and smoke steps were
+recorded as successful; the retained successful CI logs do not separately
+emit numeric process exit codes.
 
-One test per local suite is skipped because the fixture volume does not provide
-distinct case-sensitive sibling directory names. The case-alias, real symlink
-and Windows junction tests do run. Platform-dependent skips must be recorded
-again in CI; a skip is not a passed test. Python 3.11 is declared as the minimum
-but has not been run locally for this correction. Local Python 3.15 does not
-replace a Python 3.11 CI result.
+Retained local Windows checks of the base source on Python 3.12.10, 3.13.13
+and 3.15.0 discover 47 tests, pass 46 and skip one distinct-case sibling
+fixture, with source-test/smoke exits 0. The retained installed-wheel suite
+on Python 3.13.13 records the same 47/46/1 result; CLI create and chain check
+exit 0, and deployment refusal has expected exit 2. These are historical
+checks of their bound bytes, not new test runs of changed release metadata.
 
-The 13 added boundary tests include inside-ledger rejection through real
-ancestor aliases and `..`, nested containment, allowed external audit readback,
-case behavior and preservation of untracked-node/artifact and direct link guards.
-Four of them failed against the unchanged starting validator. Real baseline
-traces showed premature SQLite creation followed by `UNTRACKED_NODE_IN_WORKSPACE`;
-the repair rejects inside audit-file paths before lock/ledger creation with
-`AUDIT_INSIDE_WORKSPACE`. No alternative error code is accepted by these tests.
+## Historical failure retained for transparency
 
-## Offline package verification
+Earlier run `41193942446` on commit
+`3af0952b319fca452a27d2967f1cbce47c7ac399` failed overall. Three Linux jobs
+succeeded; six Windows/macOS jobs expected AUDIT_INSIDE_WORKSPACE but got
+UNTRACKED_NODE_IN_WORKSPACE. The later base commit contains the physical
+audit-parent containment correction and 13 added real-filesystem tests.
+The original kit's 32-test and earlier 34-test results do not describe the
+current base suite. No historical failure is relabeled as success.
 
-- Two local wheel builds with fixed SOURCE_DATE_EPOCH and no package index,
-  dependency download or build isolation produce identical wheel bytes in the
-  tested environment. This is not a reproducibility guarantee across environments.
-- Wheel CRC and all 12 RECORD entries are verified; six package modules match
-  source bytes. Metadata declares version 0.1.0, MIT and no runtime dependencies.
-- The source ZIP contains all 27 candidate files. The 26-entry source manifest
-  covers every candidate file except itself. The accompanying source map covers
-  all 27 files, including the manifest. Candidate assets have separate SHA-256s.
-- Source and installed-wheel negative tests, source smokes and installed CLI
-  readback are rerun after the documentation update. New hashes supersede earlier
-  candidate identities; original kits and previous evidence remain historical.
+## Current candidate and limits
 
-Exact commands, actual exit codes, logs, source-map/diff hashes and artifact hashes
-are retained in the accompanying local review bundle. Only its final verified
-candidate identity may be proposed for the new commit/push gate. A previous
-wheel or source archive with the same version must not be substituted.
+No new commit, push, CI run, public visibility or release is authorized.
+Local candidate verification and exact asset hashes are recorded in the
+separate preflight bundle; private receipts and raw logs are not release files.
+Only freshly built, source-bound assets may be proposed for publication.
 
-## Historical evidence — does not verify the current candidate
+GitHub CI success establishes only the documented tests of its exact commit
+and environment. It does not establish full Windows/Linux/macOS functional
+acceptance, general compatibility, defect freedom, production readiness or
+complete sandbox security. Python >=3.11 is a declared minimum, not evidence
+for untested interpreter/platform combinations.
 
-1. Original kit: Windows / Python 3.12.10 discovered 32 tests with two SQLite
-   connection-cleanup errors; smoke exit 0. Original ZIP CRC, archive paths,
-   manifests, wheel RECORD and source-module correspondence were checked before
-   staging. A targeted scan of the original 25 source files found no credential/
-   private-path matches; that result does not cover newly changed bytes.
-2. Earlier local pre-publication baseline: Windows / Python 3.13.13 passed 34
-   tests with zero skips; smoke exit 0. Its added tests cover nested JSON
-   rejection and a real workspace junction. These results belong to commit
-   `3af0952b319fca452a27d2967f1cbce47c7ac399`, before the audit-containment repair.
-3. Historical GitHub Actions run **41193942446**, attempt 1, on that same commit:
-   Linux 3/3 jobs succeeded; Windows 0/3 and macOS 0/3 succeeded. The six failed
-   jobs expected `AUDIT_INSIDE_WORKSPACE` but got `UNTRACKED_NODE_IN_WORKSPACE`.
-   The overall run failed. Logs do not establish the exact alias spelling of
-   those hosted runners. Local reproduction proves the validator defect, not
-   a particular historical runner configuration.
-4. The first repair-only local candidate passed targeted Windows checks, but
-   carried stale release documentation. Its evidence and hashes remain valid
-   only for that historical candidate, not this documentation-complete one.
-5. Historical Linux build/install results in the original kit apply only to
-   that original kit; they cannot verify new corrections.
+The broker depends on trusted host-controlled directories and runtime. It is
+not race-free against hostile filesystem writers; evidence hashes are not
+signatures and artifact content is not reliably screened for secrets.
+FORGEPRIME-FPP host integration is NOT_VERIFIED and is neither supplied nor
+required by this standalone source contract. No simulation substitutes for it.
 
-## Current platform and release limits
-
-- **Linux:** new corrections are functionally unconfirmed; new-candidate CI NOT_RUN.
-  Historical success applies only to the exact earlier commit above.
-- **macOS:** new corrections are functionally unconfirmed; new-candidate CI NOT_RUN.
-- **Windows:** targeted checks in the listed local environments only, not full
-  functional acceptance or a successful new Windows GitHub Actions run.
-- **GitHub Actions PASS** means only that the documented tests of that specific
-  commit passed in the recorded environment. A configured 3x3 matrix is a plan,
-  not execution evidence. No general defect freedom, complete sandbox security,
-  production readiness or guaranteed cross-platform compatibility is claimed.
-- Host-controlled parents and audit storage remain prerequisites. Path checks
-  are not race-free against a hostile filesystem actor. Audit hashes are not
-  signatures; content is not reliably screened for secrets. See the threat model.
-- FORGEPRIME host integration remains NOT_VERIFIED and is not supplied or
-  required by this standalone contract.
-- A private repository and the old baseline push are historically documented.
-  Account, remote tip and private visibility require fresh readback before any
-  newly authorized write. No new commit, push or CI run is authorized here.
-- Public visibility, tags and release remain blocked until separate Gate B.
-  Publisher attribution, name clearance and a verified private vulnerability
-  reporting channel remain publication prerequisites. MIT metadata is not
-  independent legal or provenance clearance.
-
-FORGE_READY != EXECUTION_AUTHORIZED. See [PUBLISHING.md](PUBLISHING.md) for draft
-release notes and the distinct owner gates.
+Security intake and remaining publication prerequisites must be resolved
+before a new Gate B can be requested. FORGE_READY != EXECUTION_AUTHORIZED.

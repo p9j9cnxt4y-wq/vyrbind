@@ -50,9 +50,10 @@ replace parent directories, or edit SQLite directly, the library cannot stop it.
 
 Current Windows checks are targeted code, unit, regression, negative and smoke
 checks, not complete functional product acceptance. A case-sensitive sibling
-test is skipped on the tested case-insensitive fixture volume. New corrections
-are functionally unconfirmed on Linux/macOS; historical Linux success belongs
-only to its recorded commit. See [RELEASE_EVIDENCE.md](../RELEASE_EVIDENCE.md).
+test is skipped on the tested case-insensitive fixture volume. Retained CI
+results cover only their recorded commit and executed tests. This attribution/
+documentation candidate has no new CI run or full platform acceptance.
+See [RELEASE_EVIDENCE.md](../RELEASE_EVIDENCE.md).
 GitHub Actions PASS means only the documented tests of that commit/environment
 passed. It cannot establish general defect freedom, full sandbox safety,
 production readiness or guaranteed cross-platform compatibility.

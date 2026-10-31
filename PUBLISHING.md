@@ -1,71 +1,70 @@
-# Proposed publication metadata and draft release notes
+# Publication metadata and unreleased release notes
 
-**Repository name:** `forgeproofgate` (provisional; no trademark clearance)  
-**Title:** ForgeProofGate — Deterministic Safety Boundary for AI Agents  
-**Short description:** A dependency-free Python reference for fail-closed agent tool authorization, bounded local artifact writes, and verifiable readback evidence.  
+**Repository name:** `forgeproofgate` (provisional; no trademark clearance)
+**Project/publisher brand:** vYronFORGE.
+**Title:** ForgeProofGate — Limited Python Reference Broker for Agent Actions
+**Short description:** A dependency-free Python reference for fail-closed agent tool authorization, bounded local artifact writes, and readback evidence.
 **Topics:** `ai-agents`, `agent-security`, `policy-engine`, `least-privilege`, `fail-closed`, `python`, `safety-invariants`
 
 ## Draft release notes — unreleased v0.1.0 candidate
 
-ForgeProofGate v0.1.0 demonstrates how a limited set of AI-agent safety invariants
-can be enforced in ordinary Python code rather than relying on a system
-prompt. It rejects unknown tools and out-of-scope actions, allows only new
-text artifacts within a pre-bound local workspace, verifies actual effects,
-and writes hash-linked audit records. All other effects, including deployment,
-network, credentials, and training, remain disabled.
+ForgeProofGate v0.1.0 is a limited Python reference broker for one local
+operation: exclusive creation of a new UTF-8 text file in a host-bound workspace,
+followed by artifact readback and hash-linked SQLite evidence. Unknown tools are
+denied. Network, deployment, credentials and other controlled effects have no
+executor. It is not an OpenAI product, an OS sandbox, a complete AI security
+solution, an authenticated human-approval service or a production-ready agent.
 
-The candidate preserves the physical audit/workspace containment fix: trusted
-ancestor aliases and `..` cannot conceal an audit file inside the workspace
-before lock/ledger creation. Direct link/reparse and untracked-node/artifact
-guards remain. Thirteen additional real-filesystem tests cover this boundary.
+Project and publisher brand: **vYronFORGE.**
 
-Windows verification covers targeted code, unit, regression, negative and smoke
-behavior in the recorded scope; it is **not complete functional product acceptance**.
-Python 3.12.10, 3.13.13 and 3.15.0 each discover 47 tests: 46 pass, one is skipped
-because the fixture volume does not provide distinct case-sensitive sibling
-names. Source test/smoke exits are 0. Installed-wheel tests and CLI readback are
-also verified; exact package checks and exits are in [RELEASE_EVIDENCE.md](RELEASE_EVIDENCE.md).
+Copyright (c) 2026 vYronFORGE.
 
-Historical Linux CI success belongs only to commit
-`3af0952b319fca452a27d2967f1cbce47c7ac399`. New Linux/macOS corrections are
-functionally unconfirmed; new-candidate CI is NOT_RUN. A GitHub Actions PASS
-means only the documented tests of that specific commit/environment passed.
+The MIT license terms remain unchanged. The public attribution uses the brand;
+it does not declare a legal form or make independent third-party rights claims.
 
-This is a **local reference implementation**, not an audited firewall,
-zero-knowledge system, human-approval service or production-ready AI agent.
-No general freedom from defects, complete sandbox security or guaranteed
-cross-platform compatibility is claimed. Host trust, protected directories,
-race limitations, unsigned audit hashes and unscreened content remain explicit
-risks in [the threat model](docs/THREAT_MODEL.md). Version 0.1.0 alone does not
-identify the reviewed source or authorize use of older same-version artifacts.
+This candidate updates attribution, package metadata and publication documents.
+Runtime code, tests and workflow remain byte-identical to commit
+`1e781555e7ff6ab6a93c97146aa3136c3ade4ff0`, including its physical audit/workspace
+containment correction. Retained evidence for CI run `41203391771` reports nine
+successful Windows/Linux/macOS jobs with Python 3.11/3.12/3.13. Each Windows job
+records 47 discovered, 46 passed and one skip; each Linux/macOS job records
+47 discovered, 45 passed and two skips. These are results for that commit,
+not CI of this uncommitted publication candidate. Fresh remote readback and
+full historical log inspection are NOT_RUN in this local preparation.
 
-## New owner commit/push gate — not an authorization
+CI success only proves the documented tests executed in that environment.
+No complete functional platform acceptance, defect freedom, sandbox security
+or production readiness is claimed. Host trust, directory protection, race
+limitations, unsigned audit digests and unscreened text content remain explicit
+limits. See [the threat model](docs/THREAT_MODEL.md).
 
-Prepare the complete diff, exact file list, fresh source-map and asset hashes,
-starting HEAD and planned commit message for review. Earlier gates and older
-candidate hashes do not authorize this candidate. After explicit new approval:
+Version 0.1.0 alone does not identify release bytes. Only the exact candidate
+source/archive/wheel hash bindings may be considered for a future approval.
+This is an unreleased draft: confidential security intake, final rights/name
+review and remote publication evidence still have open prerequisites.
 
-1. Recheck the local bytes, index and starting HEAD; authenticate and independently
-   read back the exact target repository, private visibility and remote base.
-   Stop on any drift or identity mismatch.
-2. Create exactly one reviewed local commit. Verify every committed blob against
-   the approved candidate before one private fast-forward push; never force-push.
-3. Read back the new remote commit/tree and evaluate all nine configured jobs:
-   Windows/Linux/macOS with Python 3.11/3.12/3.13, source tests and smoke.
-   Record actual test counts, skips, logs and conclusions for that exact commit.
-4. Stop on CI failure. An uncertain push requires readback, not blind retries.
-   No additional commit, workflow rerun, secrets or repository-setting changes
-   are implied by this gate. Public visibility, tags and release remain blocked.
+## Publication preparation and distinct owner gates
 
-## Separate Gate B — public visibility and release
+1. Confirm the exact source, public attribution and applicable third-party
+   licenses. A brand designation does not establish a legal entity or prove
+   the rights chain. Keep confidential personal identity records out of source,
+   diffs, logs and release assets.
+2. Verify an existing reachable confidential security reporting channel and
+   responsible recipient, then document the confirmed route in SECURITY.md.
+   Do not invent an address or send an unapproved test message.
+3. Review all publishable history, full historical Actions logs and artifacts.
+   Local excerpts cannot establish that remote publication content is safe.
+4. Any commit/push of this local candidate requires a separate exact approval.
+   Earlier consumed gates do not authorize it. No force push or CI rerun is
+   implied. Verify the resulting remote commit/tree and configured nine jobs;
+   their success applies only to the executed tests of that exact commit.
+5. Rebuild and bind assets to the final source. Request Gate B only after all
+   prerequisites are satisfied, specifying visibility, tag/release, exact
+   assets and readback actions. No publication is authorized by this document.
+6. GitHub private vulnerability reporting may be enabled after an explicitly
+   authorized public visibility change, only if separately included in that
+   authorization. Verify it before release; the preverified confidential
+   contact must already exist. Stop on failure.
 
-1. Confirm legal publisher attribution, repository name and MIT license.
-2. Enable private vulnerability reporting and replace the note in SECURITY.md.
-3. Check the CI matrix passed against the exact proposed release commit; treat
-   PASS only as evidence for its documented tests, not product acceptance.
-4. Confirm release archive and wheel digests independently.
-5. Obtain explicit Gate B for public visibility, tag/release and the exact assets.
-   Do not auto-publish, auto-deploy or
-   connect production systems as part of this reference release.
-
-FORGE_READY != EXECUTION_AUTHORIZED.
+No deployment, production installation or personal identity disclosure is
+part of this reference publication. FORGE_READY != EXECUTION_AUTHORIZED.
