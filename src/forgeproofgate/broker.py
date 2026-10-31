@@ -59,6 +59,20 @@ class LocalBroker:
             raise IntegrityError("AUDIT_INSIDE_WORKSPACE")
         if not state.parent.is_dir() or state.parent.is_symlink():
             raise IntegrityError("UNTRUSTED_AUDIT_PARENT")
+        # Compare physical locations before creating any lock or ledger. Parent
+        # aliases and '..' must not hide containment; file identity also handles
+        # case aliases on case-insensitive POSIX filesystems. Keep the original
+        # I/O path so the audit leaf's lstat/symlink guard remains effective.
+        try:
+            parent = state.parent.resolve(strict=True)
+            inside = parent / state.name == root or any(
+                os.path.samestat(node, ancestor.stat())
+                for ancestor in (parent, *parent.parents)
+            )
+        except (OSError, RuntimeError) as exc:
+            raise IntegrityError("UNTRUSTED_AUDIT_PARENT") from exc
+        if inside:
+            raise IntegrityError("AUDIT_INSIDE_WORKSPACE")
         lock = state.with_name(state.name + ".lock")
         flags = os.O_CREAT | os.O_EXCL | os.O_WRONLY
         if hasattr(os, "O_BINARY"):

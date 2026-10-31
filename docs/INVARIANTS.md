@@ -4,6 +4,14 @@ The research base distinguishes **capability**, **authority**, **evidence** and
 **effect**. The following table is an implementation coverage statement, not
 an assertion that all 30 research invariants are enforced everywhere.
 
+`TESTED_LOCAL` and `TESTED_LOCAL_SCOPE` refer only to the targeted Windows
+code/unit/regression/negative/smoke checks described in
+[the current verification record](../RELEASE_EVIDENCE.md), including its skips.
+They do not mean complete functional product acceptance or a verified Linux/
+macOS correction. GitHub Actions PASS covers only documented tests of that
+specific commit/environment, not all invariants, general freedom from defects,
+complete sandbox security, production readiness or guaranteed compatibility.
+
 | Principle | Concrete enforcement in this package | Status |
 | --- | --- | --- |
 | Prompt != Policy | Model text is never evaluated as configuration; exact intents only | TESTED_LOCAL |

@@ -6,22 +6,36 @@ Independent vYronFORGE engineering reference. Not an OpenAI product or an OS san
 
 [Deutsche Anleitung](README.de.md) · [Threat model](docs/THREAT_MODEL.md) · [Invariant coverage](docs/INVARIANTS.md)
 
-> **Status: v0.1.0 / local-only reference implementation / not security-certified.**
+> **Status: unreleased v0.1.0 candidate / local-only reference / not security-certified.**
 > This package is not an OS sandbox, a replacement for access control, an authenticated
 > human-approval system, an independent truth engine, or a protection layer for arbitrary
 > agent tools. **Do not give an AI agent access to this package's operator CLI arguments,
 > the Python host process, policy construction, audit store, or workspace parent.**
 
-## What works
+## Implemented behavior and test scope
 
 - Strict validation of untrusted JSON intent: exact schema, bounded size, duplicate-key rejection, restricted child filenames.
 - Trusted operator contract binds **run, scope, workspace and separate evidence store**.
 - **One real local effect**: create a NEW UTF-8 `.txt` file, never overwrite it.
 - All unknown tools and operations are denied; controlled effects return `HUMAN_GATE_REQUIRED` but have **no executor** in this version.
-- No network, shell, deletion, secret reading, model inference, memory promotion or deployment code.
+- The package's runtime executor has no network, shell, deletion, secret reading, model inference, memory promotion or deployment operation. Tests create and clean up synthetic fixtures; Windows junction tests use the local `mklink` command.
 - SQLite-based digest-only evidence chain with readback, corruption checks, unique action IDs and recovery stop states.
 - Invariant checks before the action and a separate artifact readback afterward.
-- A small, dependency-free Python runtime (Python 3.11+), with tests and a local smoke script.
+- A dependency-free Python runtime declaring Python 3.11+; this minimum version is not evidence that every interpreter/platform combination has been tested.
+
+Windows checks cover targeted code, unit, regression, negative and smoke behavior
+in the tested scope; they are **not a complete functional product acceptance**.
+The local source suite on Python 3.12.10, 3.13.13 and 3.15.0 discovers 47 tests:
+46 pass and one is skipped per run because the fixture volume does not support
+distinct case-sensitive sibling names. The smoke scripts exit 0. See
+[exact results and historical CI](RELEASE_EVIDENCE.md).
+
+Linux's three successful historical CI jobs apply only to commit
+`3af0952b319fca452a27d2967f1cbce47c7ac399`. New corrections are **not functionally
+confirmed on Linux or macOS**; their new CI is NOT_RUN. A GitHub Actions PASS means
+only that the documented tests passed for that specific commit and environment.
+It does not establish general freedom from defects, complete sandbox security,
+production readiness or guaranteed cross-platform compatibility.
 
 ## Quick start (offline, standard library only)
 
@@ -30,14 +44,18 @@ python tools/verify.py
 python tools/smoke.py
 ```
 
-Optionally install as a Python package (setuptools is needed only to build/install):
+Optional installation requires setuptools >=77 and may download build tooling
+unless it is already available. For an offline installation with that tooling
+present:
 
 ```sh
-python -m pip install -e .
+python -m pip install --no-index --no-deps --no-build-isolation -e .
 forgeproofgate --help
 ```
 
-Run the static sample **from an operator-controlled shell**, not from an agent:
+Run the following POSIX-shell sample **from an operator-controlled shell**, not
+from an agent. The Python verification scripts above also run from PowerShell;
+the POSIX shell syntax below is not a Windows compatibility claim:
 
 ```sh
 mkdir -p ./local-run/workspace ./local-run/evidence
@@ -70,8 +88,8 @@ from forgeproofgate import Intent, LocalBroker, RunContract
 contract = RunContract(
     scope_id="fixed-scope",
     run_id="operator-run-001",
-    workspace=Path("./controlled-output").resolve(),
-    audit_db=Path("./protected-evidence/events.sqlite").resolve(),
+    workspace=Path("./controlled-output").absolute(),
+    audit_db=Path("./protected-evidence/events.sqlite").absolute(),
 )
 
 # The folders already exist; the workspace must initially be empty.
@@ -89,8 +107,11 @@ print(result.as_dict())
 The trusted host must prepare/protect the directories, own the Python runtime,
 and supply a binding that an agent cannot modify. This package **does not** make
 those conditions true by itself.
+Pass the original absolute paths; do not resolve away direct workspace or audit
+links before the broker can inspect them. Trusted ancestor aliases are handled
+by physical containment checks, not by granting trust to arbitrary links.
 
-## Scope and guarantees
+## Implemented scope and limits
 
 | Feature | v0.1.0 |
 | --- | --- |
@@ -134,3 +155,5 @@ files and SQLite databases.
 
 A security report should be sent privately using the disclosure mechanism the
 repository maintainer configures before public release; see [SECURITY.md](SECURITY.md).
+The current candidate has no new commit, push or CI authorization. Draft release
+notes and the separate publication gates are in [PUBLISHING.md](PUBLISHING.md).

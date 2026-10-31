@@ -18,6 +18,10 @@ replace parent directories, or edit SQLite directly, the library cannot stop it.
 - One effect: exclusive creation of a direct-child UTF-8 `.txt` artifact.
 - No recursive paths, symlink workspaces, overwrite, delete or shell execution.
 - Separate audit location; simple exclusive lock file for single broker use.
+- Before lock/ledger creation, audit-parent ancestry is compared by physical
+  directory identity with the bound workspace. Trusted ancestor aliases and
+  `..` are not accepted as a way to place an audit file inside the workspace.
+  Original I/O paths and direct workspace/audit link checks remain in place.
 - Scope and run ID fixed by trusted caller, recorded by hashed contract binding.
 - Reject unknown operations, extra JSON fields, duplicate JSON keys, malformed
   content, reserved filenames and content exceeding 16,384 UTF-8 bytes.
@@ -39,6 +43,23 @@ replace parent directories, or edit SQLite directly, the library cannot stop it.
 | Changed or untracked artifact | Fail closed on readback | test_modified_artifact_blocks_next_action |
 | Crash after allow / unresolved effect | Stop; operator readback required | test_unfinished_effect_after_crash_blocks_reuse |
 | Raw injection string in content | Literal file content, not executed | test_content_is_inert_data_not_instruction |
+| Audit file inside workspace via ancestor alias or `..` | `AUDIT_INSIDE_WORKSPACE` before lock/ledger creation | test_both_paths_under_alias_inside_are_rejected; test_dotdot_inside_is_rejected_before_writes |
+| Valid external audit through trusted ancestor alias | Bounded text creation and audit readback | test_alias_sibling_audit_allows_verified_effect |
+
+## Verification limits
+
+Current Windows checks are targeted code, unit, regression, negative and smoke
+checks, not complete functional product acceptance. A case-sensitive sibling
+test is skipped on the tested case-insensitive fixture volume. New corrections
+are functionally unconfirmed on Linux/macOS; historical Linux success belongs
+only to its recorded commit. See [RELEASE_EVIDENCE.md](../RELEASE_EVIDENCE.md).
+GitHub Actions PASS means only the documented tests of that commit/environment
+passed. It cannot establish general defect freedom, full sandbox safety,
+production readiness or guaranteed cross-platform compatibility.
+
+The physical parent check does not make ancestor changes race-free, authenticate
+host trust or guarantee error priority for every invalid directory-valued audit
+path. Those invalid-path edge cases are not promoted to tested platform coverage.
 
 ## Known gaps: must not be represented as covered
 

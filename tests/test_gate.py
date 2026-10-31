@@ -177,9 +177,11 @@ class IsolatedRun(unittest.TestCase):
 
     def test_ledger_is_outside_workspace(self):
         contract = RunContract("trusted-scope", "fixed-run", self.output, self.output / "audit.sqlite")
-        with self.assertRaisesRegex(IntegrityError, "AUDIT_INSIDE_WORKSPACE"):
+        with self.assertRaisesRegex(IntegrityError, "^AUDIT_INSIDE_WORKSPACE$"):
             with LocalBroker(contract):
                 pass
+        self.assertEqual(list(self.output.iterdir()), [])
+        self.assertEqual(list(self.state.iterdir()), [])
 
     def test_workspace_symlink_is_refused(self):
         link = self.output.parent / "link"

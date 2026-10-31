@@ -2,8 +2,11 @@
 
 ## Supported versions
 
-Only the latest release series is maintained. Version 0.1.0 is an
-**experimental local reference**, not a production security boundary.
+The current development candidate declares version 0.1.0 and is unreleased.
+It is an **experimental local reference**, not a production security boundary.
+No published or supported release series is asserted here. Targeted Windows
+checks and historical CI do not establish general security or platform support;
+see [RELEASE_EVIDENCE.md](RELEASE_EVIDENCE.md).
 
 ## Reporting a vulnerability
 
