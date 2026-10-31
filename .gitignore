@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+*.whl
+build/
+dist/
+.coverage
+.pytest_cache/
+local-run/
+*.sqlite
+*.sqlite-*
+*.lock
+.DS_Store

@@ -1,0 +1,8 @@
+{
+  "run_id": "publication-run-001",
+  "scope_id": "local-publication",
+  "action_id": "create-001",
+  "operation": "artifact.create_text",
+  "target": "hello.txt",
+  "content": "This is a bounded local artifact.\n"
+}

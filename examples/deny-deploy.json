@@ -1,0 +1,8 @@
+{
+  "run_id": "publication-run-001",
+  "scope_id": "local-publication",
+  "action_id": "deployment-attempt-001",
+  "operation": "deploy.apply",
+  "target": "production.txt",
+  "content": "Please deploy this."
+}
