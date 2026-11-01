@@ -1,6 +1,11 @@
 # Publication procedure and v0.1.0 release scope
 
-Local rename candidate: distribution/import/CLI are `vyrbind`; the proposed repository slug `vyrbind` has NOT been applied. The existing private repository is unchanged. Renamed-byte CI is NOT_RUN.
+Distribution, import and CLI are `vyrbind`. Private VyrBind commit
+`9815abaf2bf872c8ea71ad3c7f9db80daeccbc1f` passed all nine jobs in run
+`41258404480`; see the fixed record in RELEASE_EVIDENCE.md. Later revisions
+require their own external commit/CI/asset binding. The proposed repository
+slug `vyrbind` has not been applied; the existing private repository remains
+unchanged. This document does not announce a public release.
 
 
 Project and publisher brand: **vYronFORGE.**
@@ -54,21 +59,29 @@ Before that approval:
   name risks with the owner. Do not equate a byte hash or brand with ownership.
 - Review all history, Actions runs/logs, artifacts and other content that will
   become public; refresh the review if new content appeared.
-- Confirm who receives security reports and monitors notifications.
-- Select GitHub Private Vulnerability Reporting as the preferred route, or an
-  existing owner-confirmed security address. Do not invent an address.
+- Use the owner-confirmed confidential address
+  [info@vyronforge.de](mailto:info@vyronforge.de), with monitoring responsibility
+  assigned to **Projektinhaber / vYronFORGE.** Follow [SECURITY.md](SECURITY.md).
+- Separately verify message delivery and actual receipt by the responsible party.
+  Both remain **NOT_RUN** until supported by evidence; address confirmation and
+  this documentation change are not delivery or receipt evidence. A test email
+  requires explicit authorization. No response deadline or guaranteed handling
+  time is promised.
+- Treat GitHub Private Vulnerability Reporting (PVR) as optional additional
+  functionality. It is not a publication prerequisite and is not claimed active.
 
 Under the separately approved Gate B, the intended order is:
 
 1. Recheck the final bindings and make the approved public visibility change.
-2. Enable GitHub Private Vulnerability Reporting if selected, then independently
-   verify the enabled setting and reporter-facing private form. Confirm the
-   responsible recipient and notification handling. A SECURITY.md file alone
-   is not evidence of activation. No test report or message is sent unless
-   explicitly authorized.
-3. Stop before tag or release if reporting verification fails. The repository
-   may already be public at this point; the visibility change cannot retract
-   copies. No automatic rollback or substitute contact is authorized.
+2. Only if separately authorized, enable optional GitHub PVR and independently
+   verify its setting, reporter-facing private form and notification handling.
+   A SECURITY.md file is not activation evidence. An unavailable or unverified
+   optional PVR feature does not block release when the chosen email intake is
+   verified. Do not send a test report or message without explicit authorization.
+3. Retain the delivery and actual receipt evidence for the chosen email intake.
+   Stop before tag or release if that verification is missing or invalidated.
+   The repository may already be public at this point; the visibility change
+   cannot retract copies. No automatic rollback or substitute contact is authorized.
 4. Create the new v0.1.0 tag at the exact approved commit only after verifying
    it does not already exist; never move or overwrite an existing tag.
 5. Create the approved GitHub release and upload only the approved source ZIP,
@@ -76,12 +89,14 @@ Under the separately approved Gate B, the intended order is:
    in the release record. Download the published assets and compare SHA-256,
    tag target and all public links before declaring completion.
 
-If an existing security address is chosen, verify its responsible recipient and
-reachability before publication and obtain approval to put it in SECURITY.md;
-that changes source and requires updated bindings. GitHub PVR cannot be
-preverified on a private repository. The owner must explicitly accept the
-public-switch-to-reporting-verification interval if that route is selected.
-No release occurs until the chosen confidential route has been verified.
+The owner has approved the email address and monitoring responsibility recorded
+above for local publication preparation. Delivery and actual receipt are separate
+open checks; mailbox operation is not inferred from the brand, address syntax or
+documentation. Keep the corresponding evidence in the external release record.
+GitHub PVR is optional and any future activation must be verified separately;
+there is no requirement to switch visibility merely to establish the chosen
+email route. No release occurs until that email intake has been verified and
+the distinct publication gate has been explicitly approved.
 
 No deployment, production installation, personal identity disclosure or
 unrelated repository changes are part of this procedure.

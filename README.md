@@ -1,9 +1,10 @@
 # VyrBind
 
-> **VyrBind rename (local candidate, unreleased):** 9/9 private CI success
-> belongs to the pre-rename commit `d9490644694d108d85a844ed1d9efeb72c64176c`, NOT to these renamed
-> bytes. No GitHub CI for the renamed candidate yet; no complete platform
-> or security certification. See RELEASE_EVIDENCE.md.
+> **Private VyrBind qualification (unreleased):** commit
+> `9815abaf2bf872c8ea71ad3c7f9db80daeccbc1f` passed all nine jobs in
+> GitHub Actions run `41258404480`. This is fixed historical evidence, not
+> a CI claim for later revisions or full platform/security acceptance.
+> Final commit, CI and asset bindings belong to the external release record.
 
 
 Project and publisher brand: **vYronFORGE.**
@@ -36,12 +37,12 @@ The public attribution is a brand designation and does not assert a legal form.
 
 Windows checks cover targeted code, unit, regression, negative and smoke behavior
 in the tested scope; they are **not a complete functional product acceptance**.
-The local source suite on Python 3.12.10, 3.13.13 and 3.15.0 discovers 47 tests:
+Historical pre-rename local source runs on Python 3.12.10, 3.13.13 and 3.15.0 discovered 47 tests:
 46 pass and one is skipped per run because the fixture volume does not support
 distinct case-sensitive sibling names. The smoke scripts exit 0. See
 [exact results and historical CI](RELEASE_EVIDENCE.md).
 
-The completed private qualification includes nine successful CI jobs on
+The completed private VyrBind qualification includes nine successful CI jobs on
 Windows, Linux and macOS with Python 3.11/3.12/3.13. The fixed baseline,
 actual counts, skips and earlier failures are in [RELEASE_EVIDENCE.md](RELEASE_EVIDENCE.md).
 A CI PASS applies only to the tested commit and environment. Later source
@@ -164,9 +165,15 @@ trademark clearance. No repository, deployment, cloud service or account
 changes are made by this package. The test suite uses only local temporary
 files and SQLite databases.
 
-Use the confidential reporting instructions in [SECURITY.md](SECURITY.md).
-GitHub Private Vulnerability Reporting is the preferred route; this README does
-not assert that it is enabled. Do not submit vulnerability details or sensitive
-data to public issues. A public release requires verified confidential intake.
+Report vulnerabilities confidentially to
+[info@vyronforge.de](mailto:info@vyronforge.de), monitored by the project owner /
+vYronFORGE. Follow [SECURITY.md](SECURITY.md) for the private reporting procedure.
+The owner has confirmed the address and responsibility; message delivery and
+actual recipient confirmation remain separately **NOT_RUN / to be verified**.
+No response deadline or guaranteed handling time is promised.
+GitHub Private Vulnerability Reporting is an optional additional route, not a
+publication prerequisite; activation is not asserted. Do not submit vulnerability
+details or sensitive data to public issues. Public release still requires
+verification of the chosen email intake. No test email is authorized here.
 Release availability, exact commit and asset hashes belong to the release
 record. Publication requires the distinct approvals in [PUBLISHING.md](PUBLISHING.md).

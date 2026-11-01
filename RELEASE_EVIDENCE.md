@@ -1,9 +1,10 @@
 # VyrBind 0.1.0 — verification scope and source identity
 
-> **VyrBind rename (local candidate, unreleased):** 9/9 private CI success
-> belongs to the pre-rename commit `d9490644694d108d85a844ed1d9efeb72c64176c`, NOT to these renamed
-> bytes. No GitHub CI for the renamed candidate yet; no complete platform
-> or security certification. See RELEASE_EVIDENCE.md.
+> **Private VyrBind qualification (unreleased):** commit
+> `9815abaf2bf872c8ea71ad3c7f9db80daeccbc1f` passed all nine jobs in
+> GitHub Actions run `41258404480`. This is fixed historical evidence, not
+> a CI claim for later revisions or full platform/security acceptance.
+> Final commit, CI and asset bindings belong to the external release record.
 
 
 Version 0.1.0 alone does not identify source bytes or establish that a release
@@ -12,7 +13,28 @@ release verification record. Before publication these records are local drafts.
 This file records fixed historical evidence; it does not contain its own commit
 SHA or claim that a later revision automatically passed CI.
 
-## Completed private qualification baseline
+## Completed private VyrBind integration
+
+Commit `9815abaf2bf872c8ea71ad3c7f9db80daeccbc1f` was privately pushed and
+independently read back after the namespace/CLI rename. Run `41258404480`,
+attempt 1, passed all nine Windows/Linux/macOS jobs with Python 3.11/3.12/3.13.
+All 27 remote files matched the approved VyrBind candidate. Each Windows job
+discovered 47 tests, passed 46 and skipped one; each Linux/macOS job discovered
+47, passed 45 and skipped two. Source regression and clean-room smoke passed
+in every job. Skip reasons are the filesystem and Windows-junction limitations
+listed below; skipped checks are not passes.
+
+Fresh local Windows source tests for that integration passed 46 of 47 checks
+with one filesystem skip; smoke exited 0. All nine full logs for that run were
+read and subjected to targeted privacy checks with no unresolved finding.
+Raw logs and private review evidence are not publication assets. This is a
+scoped review and not proof of universal absence of sensitive content.
+
+Security-contact and subsequent documentation corrections do not inherit this
+whole-commit CI result. Their exact final commit, CI run and ZIP/wheel hashes
+must be recorded externally after their own approved private integration.
+
+## Historical pre-rename private qualification baseline
 
 Commit `d9490644694d108d85a844ed1d9efeb72c64176c` was privately pushed and
 independently read back. GitHub Actions run `41253469293`, attempt 1, completed

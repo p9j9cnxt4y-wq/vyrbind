@@ -1,10 +1,10 @@
 # VyrBind – Deutsch
 
-> **VyrBind-Umbenennung (lokaler Kandidat, unveröffentlicht):**
-> Die private CI-Prüfung 9/9 betrifft den vorherigen Commit
-> `d9490644694d108d85a844ed1d9efeb72c64176c` unter altem Paketnamen. Für diese umbenannten
-> Dateien wurde noch keine GitHub-CI ausgeführt. Keine vollständige
-> Plattform- oder Sicherheitsfreigabe. Siehe RELEASE_EVIDENCE.md.
+> **Private VyrBind-Qualifikation (unveröffentlicht):** Commit
+> `9815abaf2bf872c8ea71ad3c7f9db80daeccbc1f` bestand alle neun Jobs im
+> GitHub-Actions-Lauf `41258404480`. Dies ist ein fester historischer Nachweis,
+> kein CI-PASS für spätere Änderungen und keine vollständige Plattformabnahme.
+> Die finale Commit-/CI-/Asset-Bindung steht im externen Release-Nachweis.
 
 
 Projekt- und Herausgebermarke: **vYronFORGE.**
@@ -63,11 +63,12 @@ physischen Audit-/Workspace-Trennung berücksichtigt.
 
 - **Windows:** gezielte Code-, Unit-, Regressions-, Negativ- und Smoke-Prüfungen
   im tatsächlich getesteten Scope; **keine vollständige funktionale Produktabnahme**.
-  Python 3.12.10, 3.13.13 und 3.15.0: jeweils 47 Tests entdeckt, 46 bestanden,
+  Historische lokale Läufe vor der Umbenennung, Python 3.12.10/3.13.13/3.15.0:
+  jeweils 47 Tests entdeckt, 46 bestanden,
   ein Skip; Test- und Smoke-Exitcode jeweils 0.
 - **Skip:** Das Fixture-Volume erlaubt keine getrennten Verzeichnisnamen nur
   durch Groß-/Kleinschreibung. Dieser case-sensitive Test lief dort nicht.
-- **Abgeschlossene private Qualifikation:** neun erfolgreiche Jobs unter
+- **Abgeschlossene private VyrBind-Qualifikation:** neun erfolgreiche Jobs unter
   Windows/Linux/macOS mit Python 3.11/3.12/3.13. Je Windows-Job: 47 entdeckt,
   46 bestanden, ein Skip; je Linux-/macOS-Job: 47 entdeckt, 45 bestanden,
   zwei Skips. Der feste Bezugsstand, frühere Fehler und die Grenzen der
@@ -106,8 +107,15 @@ bereinigen eigene temporäre Fixtures und nutzen unter Windows `mklink` für ech
 Junctions. Ein Test-PASS autorisiert weder Commit/Push noch Veröffentlichung.
 Release-Entwurf und getrennte Gates: [PUBLISHING.md](PUBLISHING.md).
 
-Der bevorzugte vertrauliche Meldeweg ist GitHub Private Vulnerability Reporting.
-Seine Aktivierung wird hier nicht behauptet; maßgeblich ist die tatsächlich
-verfügbare private Meldefunktion. Details und Ausfallverhalten: [SECURITY.md](SECURITY.md).
-Keine Sicherheitsdetails in öffentliche Issues schreiben. Verfügbarkeit und
-Identität einer Veröffentlichung ergeben sich erst aus dem Release-Nachweis.
+Schwachstellen vertraulich an [info@vyronforge.de](mailto:info@vyronforge.de)
+melden. Für die Überwachung verantwortlich: **Projektinhaber / vYronFORGE.**
+Das Verfahren steht in [SECURITY.md](SECURITY.md). Adresse und Zuständigkeit sind
+vom Projektinhaber bestätigt; Nachrichtenzustellung und tatsächlicher Empfang
+bleiben separat zu verifizieren (**NOT_RUN**). Es wird weder eine Reaktionsfrist
+noch eine garantierte Bearbeitungszeit zugesagt.
+GitHub Private Vulnerability Reporting ist eine optionale Ergänzung und keine
+Veröffentlichungsvoraussetzung; seine Aktivierung wird nicht behauptet.
+Keine Sicherheitsdetails in öffentliche Issues schreiben. Vor Veröffentlichung
+ist der gewählte E-Mail-Meldeweg zu verifizieren. Eine Test-E-Mail ist hier nicht
+freigegeben. Verfügbarkeit und Identität einer Veröffentlichung ergeben sich erst
+aus dem Release-Nachweis.

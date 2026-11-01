@@ -1,19 +1,19 @@
 # Changelog
 
-## VyrBind v0.1.0 — local rename candidate (unreleased)
+## VyrBind v0.1.0 — private integration (unreleased)
 
 - Replace distribution name, import namespace and CLI command with `vyrbind`.
 - Update docs, sources, test references and source SHA-256 manifest.
 - Preserve actual runtime logic, MIT wording and historical failure records.
-- Pre-rename CI applies only to its own commit; renamed CI is NOT_RUN.
-- No Git write, public visibility, tag, release or deployment authorized.
+- Private VyrBind commit `9815abaf2bf872c8ea71ad3c7f9db80daeccbc1f` passed nine jobs in run `41258404480`; later revisions require their own CI binding.
+- The separately authorized private rename commit/push is complete. No public visibility, tag, release or deployment is implied.
 
 
 ## v0.1.0 publication closeout
 
 - Reconcile completed private qualification with immutable historical evidence.
 - Use an external release record for final commit, CI and asset bindings.
-- Prepare conditional confidential reporting instructions and separately gated publication.
+- Document owner-confirmed confidential intake at info@vyronforge.de, monitored by Projektinhaber / vYronFORGE.; delivery and actual receipt remain separately unverified. GitHub PVR is optional.
 - Preserve runtime, tests, workflow, package version and MIT terms unchanged.
 - This entry records documentation changes; it does not announce a public release.
 
