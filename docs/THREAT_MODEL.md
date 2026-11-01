@@ -8,7 +8,7 @@ with a model (including the JSON intent, filename and content) is untrusted **da
 The model cannot have arbitrary Python, shell, operating-system or filesystem
 access. Giving it those capabilities defeats this package.
 
-ForgeProofGate is a local *broker*, not an operating-system access-control
+VyrBind is a local *broker*, not an operating-system access-control
 mechanism. If an attacker can call the broker's constructor or mutate the
 trusted host, choose a different policy, change source code, create hardlinks,
 replace parent directories, or edit SQLite directly, the library cannot stop it.
@@ -50,9 +50,10 @@ replace parent directories, or edit SQLite directly, the library cannot stop it.
 
 Current Windows checks are targeted code, unit, regression, negative and smoke
 checks, not complete functional product acceptance. A case-sensitive sibling
-test is skipped on the tested case-insensitive fixture volume. Retained CI
-results cover only their recorded commit and executed tests. This attribution/
-documentation candidate has no new CI run or full platform acceptance.
+test is skipped on the tested case-insensitive fixture volume. Recorded CI
+results cover only their fixed qualification commit and executed tests. Later
+source revisions require their own release binding; full platform acceptance
+is not established.
 See [RELEASE_EVIDENCE.md](../RELEASE_EVIDENCE.md).
 GitHub Actions PASS means only the documented tests of that commit/environment
 passed. It cannot establish general defect freedom, full sandbox safety,

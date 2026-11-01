@@ -41,7 +41,7 @@ def _print(result: dict) -> None:
 
 
 def main(argv: list[str] | None = None) -> int:
-    parser = argparse.ArgumentParser(prog="forgeproofgate", description="Local-only deterministic AI action gate")
+    parser = argparse.ArgumentParser(prog="vyrbind", description="Local-only deterministic AI action gate")
     subs = parser.add_subparsers(dest="command", required=True)
     run = subs.add_parser("run", help="Controlled local create from an untrusted intent JSON")
     run.add_argument("--workspace", type=Path, required=True, help="Operator-bound, existing EMPTY output folder")

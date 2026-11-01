@@ -1,4 +1,4 @@
-"""ForgeProofGate: deterministic, fail-closed local AI action boundary."""
+"""VyrBind: deterministic, fail-closed local AI action boundary."""
 from .models import ContractError, Intent, Result, RunContract
 from .evidence import EvidenceLedger, IntegrityError
 from .broker import LocalBroker

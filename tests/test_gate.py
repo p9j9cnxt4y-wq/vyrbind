@@ -9,9 +9,9 @@ import unittest
 from contextlib import closing
 from unittest.mock import patch
 
-from forgeproofgate import (ContractError, EvidenceLedger, IntegrityError, Intent,
+from vyrbind import (ContractError, EvidenceLedger, IntegrityError, Intent,
                             LocalBroker, RunContract, evaluate)
-from forgeproofgate.cli import main, parse_intent
+from vyrbind.cli import main, parse_intent
 
 
 class IsolatedRun(unittest.TestCase):

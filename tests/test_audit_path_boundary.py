@@ -7,7 +7,7 @@ import subprocess
 import tempfile
 import unittest
 
-from forgeproofgate import EvidenceLedger, IntegrityError, Intent, LocalBroker, RunContract
+from vyrbind import EvidenceLedger, IntegrityError, Intent, LocalBroker, RunContract
 
 
 class AuditPathBoundary(unittest.TestCase):

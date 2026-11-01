@@ -1,4 +1,11 @@
-# ForgeProofGate – Deutsch
+# VyrBind – Deutsch
+
+> **VyrBind-Umbenennung (lokaler Kandidat, unveröffentlicht):**
+> Die private CI-Prüfung 9/9 betrifft den vorherigen Commit
+> `d9490644694d108d85a844ed1d9efeb72c64176c` unter altem Paketnamen. Für diese umbenannten
+> Dateien wurde noch keine GitHub-CI ausgeführt. Keine vollständige
+> Plattform- oder Sicherheitsfreigabe. Siehe RELEASE_EVIDENCE.md.
+
 
 Projekt- und Herausgebermarke: **vYronFORGE.**
 
@@ -9,9 +16,9 @@ Unabhängige Referenz; kein OpenAI-Produkt und keine Betriebssystem-Sandbox.
 
 **Technische Referenzimplementierung für deterministische Sicherheitsgrenzen von KI-Agenten.**
 
-Stand: **unveröffentlichter Kandidat v0.1.0 / LOCAL_ONLY / nicht sicherheitszertifiziert**.
+Geltungsbereich: **v0.1.0 / experimentelle lokale Referenz / nicht sicherheitszertifiziert**.
 
-ForgeProofGate setzt nicht bloß einen Systemprompt ein, sondern prüft
+VyrBind setzt nicht bloß einen Systemprompt ein, sondern prüft
 Aktionen vor der lokalen Ausführung anhand eines vorab vom Host gebundenen
 Run-/Scope-Vertrags. Das Modell darf diesen Vertrag nicht erzeugen oder
 verändern. Der technische Code erzwingt **genau eine** lokale Operation:
@@ -60,15 +67,15 @@ physischen Audit-/Workspace-Trennung berücksichtigt.
   ein Skip; Test- und Smoke-Exitcode jeweils 0.
 - **Skip:** Das Fixture-Volume erlaubt keine getrennten Verzeichnisnamen nur
   durch Groß-/Kleinschreibung. Dieser case-sensitive Test lief dort nicht.
-- **Erhaltener CI-Nachweis:** Lauf `41203391771` für Commit
-  `1e781555e7ff6ab6a93c97146aa3136c3ade4ff0` dokumentiert neun erfolgreiche
-  Jobs: Windows/Linux/macOS mit Python 3.11/3.12/3.13. Je Windows-Job:
-  47 entdeckt, 46 bestanden, ein Skip. Je Linux-/macOS-Job: 47 entdeckt,
-  45 bestanden, zwei Skips.
-- **Dieser Veröffentlichungskandidat:** nur Attribution, Metadaten und
-  Dokumentation geändert; Runtime, Tests und Workflow bytegleich zum genannten
-  Commit. Kein neuer Commit und kein neuer CI-Lauf. Frischer Remote-Abgleich
-  und vollständige historische Logprüfung: NOT_RUN.
+- **Abgeschlossene private Qualifikation:** neun erfolgreiche Jobs unter
+  Windows/Linux/macOS mit Python 3.11/3.12/3.13. Je Windows-Job: 47 entdeckt,
+  46 bestanden, ein Skip; je Linux-/macOS-Job: 47 entdeckt, 45 bestanden,
+  zwei Skips. Der feste Bezugsstand, frühere Fehler und die Grenzen der
+  Übertragbarkeit stehen in [RELEASE_EVIDENCE.md](RELEASE_EVIDENCE.md).
+- **Release-Bindung:** spätere Quelldateiänderungen erfordern eine eigene
+  Commit-/CI-/Asset-Zuordnung. Version 0.1.0 allein identifiziert keine Bytes.
+  Der externe Release-Nachweis hält diese Zuordnung fest, ohne die eigene
+  Commit-SHA in Quelldokumenten nachzuführen.
 - **GitHub Actions PASS** bedeutet ausschließlich, dass die dokumentierten
   Tests dieses konkreten Commits in der jeweiligen Umgebung erfolgreich liefen.
 
@@ -98,3 +105,9 @@ Das gilt für den Runtime-Executor. Tests verwenden synthetische Dateien,
 bereinigen eigene temporäre Fixtures und nutzen unter Windows `mklink` für echte
 Junctions. Ein Test-PASS autorisiert weder Commit/Push noch Veröffentlichung.
 Release-Entwurf und getrennte Gates: [PUBLISHING.md](PUBLISHING.md).
+
+Der bevorzugte vertrauliche Meldeweg ist GitHub Private Vulnerability Reporting.
+Seine Aktivierung wird hier nicht behauptet; maßgeblich ist die tatsächlich
+verfügbare private Meldefunktion. Details und Ausfallverhalten: [SECURITY.md](SECURITY.md).
+Keine Sicherheitsdetails in öffentliche Issues schreiben. Verfügbarkeit und
+Identität einer Veröffentlichung ergeben sich erst aus dem Release-Nachweis.

@@ -9,7 +9,7 @@ import tempfile
 import unittest
 from unittest.mock import patch
 
-from forgeproofgate import IntegrityError, LocalBroker, RunContract
+from vyrbind import IntegrityError, LocalBroker, RunContract
 
 
 @unittest.skipUnless(os.name == "nt", "Windows junction fixture requires Windows")

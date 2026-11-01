@@ -9,7 +9,7 @@ import tempfile
 project = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(project / "src"))
 
-from forgeproofgate import EvidenceLedger, Intent, LocalBroker, RunContract
+from vyrbind import EvidenceLedger, Intent, LocalBroker, RunContract
 
 with tempfile.TemporaryDirectory(prefix="fpg-local-smoke-") as tmp:
     root = Path(tmp)

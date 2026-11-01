@@ -1,4 +1,10 @@
-# ForgeProofGate
+# VyrBind
+
+> **VyrBind rename (local candidate, unreleased):** 9/9 private CI success
+> belongs to the pre-rename commit `d9490644694d108d85a844ed1d9efeb72c64176c`, NOT to these renamed
+> bytes. No GitHub CI for the renamed candidate yet; no complete platform
+> or security certification. See RELEASE_EVIDENCE.md.
+
 
 Project and publisher brand: **vYronFORGE.**
 
@@ -11,7 +17,7 @@ The public attribution is a brand designation and does not assert a legal form.
 
 [Deutsche Anleitung](README.de.md) · [Threat model](docs/THREAT_MODEL.md) · [Invariant coverage](docs/INVARIANTS.md)
 
-> **Status: unreleased v0.1.0 candidate / local-only reference / not security-certified.**
+> **Scope: v0.1.0 experimental local reference / not security-certified.**
 > This package is not an OS sandbox, a replacement for access control, an authenticated
 > human-approval system, an independent truth engine, or a protection layer for arbitrary
 > agent tools. **Do not give an AI agent access to this package's operator CLI arguments,
@@ -35,16 +41,12 @@ The local source suite on Python 3.12.10, 3.13.13 and 3.15.0 discovers 47 tests:
 distinct case-sensitive sibling names. The smoke scripts exit 0. See
 [exact results and historical CI](RELEASE_EVIDENCE.md).
 
-The retained CI record for commit
-`1e781555e7ff6ab6a93c97146aa3136c3ade4ff0`, run `41203391771`, reports nine
-successful jobs (Windows, Linux and macOS; Python 3.11/3.12/3.13). This local
-publication candidate changes attribution and documentation only; its runtime,
-tests and workflow match that commit. The candidate has no new commit or CI
-run. Fresh remote readback and complete historical log review remain NOT_RUN
-in this local preparation. A GitHub Actions PASS means
-only that the documented tests passed for that specific commit and environment.
-It does not establish general freedom from defects, complete sandbox security,
-production readiness or guaranteed cross-platform compatibility.
+The completed private qualification includes nine successful CI jobs on
+Windows, Linux and macOS with Python 3.11/3.12/3.13. The fixed baseline,
+actual counts, skips and earlier failures are in [RELEASE_EVIDENCE.md](RELEASE_EVIDENCE.md).
+A CI PASS applies only to the tested commit and environment. Later source
+revisions require their own release binding; no complete platform acceptance,
+sandbox security, production readiness or general compatibility is claimed.
 
 ## Quick start (offline, standard library only)
 
@@ -59,7 +61,7 @@ present:
 
 ```sh
 python -m pip install --no-index --no-deps --no-build-isolation -e .
-forgeproofgate --help
+vyrbind --help
 ```
 
 Run the following POSIX-shell sample **from an operator-controlled shell**, not
@@ -68,13 +70,13 @@ the POSIX shell syntax below is not a Windows compatibility claim:
 
 ```sh
 mkdir -p ./local-run/workspace ./local-run/evidence
-PYTHONPATH=src python -m forgeproofgate.cli run \
+PYTHONPATH=src python -m vyrbind.cli run \
   --workspace ./local-run/workspace \
   --audit-db ./local-run/evidence/events.sqlite \
   --scope local-publication --run-id publication-run-001 \
   --intent examples/allow.json
 
-PYTHONPATH=src python -m forgeproofgate.cli verify \
+PYTHONPATH=src python -m vyrbind.cli verify \
   --audit-db ./local-run/evidence/events.sqlite
 ```
 
@@ -91,7 +93,7 @@ Use a fresh local-run directory for the example each time.
 
 ```python
 from pathlib import Path
-from forgeproofgate import Intent, LocalBroker, RunContract
+from vyrbind import Intent, LocalBroker, RunContract
 
 # Trusted host creates this. NEVER accept these paths or IDs from model output.
 contract = RunContract(
@@ -143,7 +145,7 @@ universally proven or that a successful local regression is a production proof.
 ## Threat and privacy notes
 
 Model-supplied `content` is written **verbatim** to the explicitly approved
-workspace file; it is not interpreted as instructions by ForgeProofGate. The
+workspace file; it is not interpreted as instructions by VyrBind. The
 system does **not** reliably detect secrets in file content, and should only be
 given data approved for that workspace. The evidence database stores digests
 and fixed status codes, not text content, URLs or raw target names. Digests
@@ -162,8 +164,9 @@ trademark clearance. No repository, deployment, cloud service or account
 changes are made by this package. The test suite uses only local temporary
 files and SQLite databases.
 
-No verified confidential security reporting contact is available yet. Public
-release remains blocked until one is documented; see [SECURITY.md](SECURITY.md).
-Do not submit vulnerability details or sensitive data to public issues.
-The current candidate has no new commit, push or CI authorization. Draft release
-notes and the separate publication gates are in [PUBLISHING.md](PUBLISHING.md).
+Use the confidential reporting instructions in [SECURITY.md](SECURITY.md).
+GitHub Private Vulnerability Reporting is the preferred route; this README does
+not assert that it is enabled. Do not submit vulnerability details or sensitive
+data to public issues. A public release requires verified confidential intake.
+Release availability, exact commit and asset hashes belong to the release
+record. Publication requires the distinct approvals in [PUBLISHING.md](PUBLISHING.md).

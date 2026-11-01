@@ -1,6 +1,23 @@
 # Changelog
 
-## Local publication preparation — unreleased
+## VyrBind v0.1.0 — local rename candidate (unreleased)
+
+- Replace distribution name, import namespace and CLI command with `vyrbind`.
+- Update docs, sources, test references and source SHA-256 manifest.
+- Preserve actual runtime logic, MIT wording and historical failure records.
+- Pre-rename CI applies only to its own commit; renamed CI is NOT_RUN.
+- No Git write, public visibility, tag, release or deployment authorized.
+
+
+## v0.1.0 publication closeout
+
+- Reconcile completed private qualification with immutable historical evidence.
+- Use an external release record for final commit, CI and asset bindings.
+- Prepare conditional confidential reporting instructions and separately gated publication.
+- Preserve runtime, tests, workflow, package version and MIT terms unchanged.
+- This entry records documentation changes; it does not announce a public release.
+
+## Historical attribution preparation snapshot — 2026-10-31
 
 - Set the owner-approved public copyright notice to Copyright (c) 2026 vYronFORGE.
 - Use vYronFORGE. as project/publisher brand in package metadata and DE/EN docs.
